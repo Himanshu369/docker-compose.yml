@@ -1,15 +1,12 @@
-
-Welcome to Technical Skills Linux
-
 version: '3.7'
 
 services:
     php-httpd:
         image: php:7.3-apache
         ports:
-            - 80:80
+            - 81:80
         volumes:
-            - "./DocumentRoot:/var/www/html"
+            - "./php-httpd:/var/www/html"
 
     mariadb:
         image: mariadb:10.5.2
@@ -29,6 +26,8 @@ services:
             - 'mariadb:db'
         ports:
             - 8081:80
+        volumes:
+            - "./phpadmin:/var/www/html"
 
 volumes:
     mariadb-volume:
